@@ -1,18 +1,60 @@
-strs = ["eat","tea","tan","ate","nat","bat"]
+def groupAnagrams(strs):
 
-groups = {}
+    groups = {}
 
-for s in strs:
-    count = {}
+    for s in strs:
+        count = {}
+
+        for ch in s:
+            count[ch] = count.get(ch, 0) + 1
+        
+        key = tuple(sorted(count.items()))
+
+        if key not in groups:
+            groups[key] = []
+        
+        groups[key].append(s)
+
+    return list(groups.values())
+
+print(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# strs = ["eat","tea","tan","ate","nat","bat"]
+
+# groups = {}
+
+# for s in strs:
+#     count = {}
     
-    for ch in s:
-        count[ch] = count.get(ch, 0) + 1
+#     for ch in s:
+#         count[ch] = count.get(ch, 0) + 1
     
-    key = tuple(sorted(count.items()))
+#     key = tuple(sorted(count.items()))
 
-    if key not in groups:
-        groups[key] = []
+#     if key not in groups:
+#         groups[key] = []
     
-    groups[key].append(s)
+#     groups[key].append(s)
 
-print(list(groups.values()))
+# print(list(groups.values()))
